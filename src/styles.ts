@@ -21,3 +21,9 @@ export const ColumnContainer = styled.div`
   padding: 8px 8px;
   flex-grow: 0;
 `;
+
+// Column Titles
+export const ColumnTitle = styled.div`
+  padding: 6px 16px 12px;
+  font-weight: bold;
+`;

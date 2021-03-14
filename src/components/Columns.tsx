@@ -1,10 +1,9 @@
 import React from "react";
-
+import { ColumnContainer, ColumnTitle } from "../styles";
 export const Columns = () => {
   return (
-    <div>
-      <div></div>
-      Column Title
-    </div>
+    <ColumnContainer>
+      <ColumnTitle>Title</ColumnTitle>
+    </ColumnContainer>
   );
 };

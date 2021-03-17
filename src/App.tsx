@@ -1,12 +1,9 @@
 import React from "react";
-import logo from "./logo.svg";
 import { AppContainer } from "./styles";
 import Card from "./components/Card";
 import Column from "./components/Column";
 
-import "./App.css";
-
-function App() {
+const App = () => {
   return (
     <AppContainer>
       <Column text="To Do">
@@ -22,6 +19,6 @@ function App() {
       </Column>
     </AppContainer>
   );
-}
+};
 
 export default App;

@@ -1,11 +1,15 @@
 import React from "react";
-import { ColumnContainer } from "../styles";
+import { ColumnContainer, ColumnTitle } from "../styles";
 
 interface ColumnProps {
   text: string;
 }
-const Column = () => {
-  return <div></div>;
+const Column = ({ text }: ColumnProps) => {
+  return (
+    <ColumnContainer>
+      <ColumnTitle>{text}</ColumnTitle>
+    </ColumnContainer>
+  );
 };
 
 export default Column;

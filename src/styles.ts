@@ -59,3 +59,12 @@ export const AddItemButton = styled.button<AddItemButtonProps>`
     background-color: #ffffff52;
   }
 `;
+
+// New Item Form Container
+export const NewItemFormContainer = styled.div`
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: flex-start;
+`;

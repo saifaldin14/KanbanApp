@@ -1,3 +1,4 @@
+import React from "react";
 import react, { createContext } from "react";
 
 interface Task {
@@ -19,11 +20,7 @@ interface AppStateContextProps {
   state: AppState;
 }
 
-const AppStateContext = createContext<AppStateContextProps>(
-  {} as AppStateContextProps
-);
-
-export const appData: AppState = {
+const appData: AppState = {
   lists: [
     {
       id: "0",
@@ -41,4 +38,16 @@ export const appData: AppState = {
       tasks: [{ id: "c3", text: "Begin to use static typing" }],
     },
   ],
+};
+
+const AppStateContext = createContext<AppStateContextProps>(
+  {} as AppStateContextProps
+);
+
+export const AppStateProvider = ({ children }: React.PropsWithChildren<{}>) => {
+  return (
+    <AppStateContext.Provider value={{ state: appData }}>
+      {children}
+    </AppStateContext.Provider>
+  );
 };

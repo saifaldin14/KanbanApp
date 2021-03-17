@@ -4,6 +4,7 @@ import AddNewItem from "./AddNewItem";
 
 interface ColumnProps {
   text: string;
+  index: number;
 }
 const Column = ({ text, children }: React.PropsWithChildren<ColumnProps>) => {
   return (

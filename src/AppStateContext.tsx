@@ -1,5 +1,5 @@
 import React from "react";
-import react, { createContext } from "react";
+import react, { createContext, useReducer, useContext } from "react";
 
 interface Task {
   id: string;
@@ -50,4 +50,8 @@ export const AppStateProvider = ({ children }: React.PropsWithChildren<{}>) => {
       {children}
     </AppStateContext.Provider>
   );
+};
+
+export const useAppState = () => {
+  return useContext(AppStateContext);
 };

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { AddItemButton } from "../styles";
 
 interface AddNewItemProps {
@@ -6,8 +6,19 @@ interface AddNewItemProps {
   toggleButtonText: string;
   dark?: boolean;
 }
-const AddNewItem = () => {
-  return <div></div>;
+const AddNewItem = (props: AddNewItemProps) => {
+  const [showForm, setShowForm] = useState(false);
+  const { onAdd, toggleButtonText, dark } = props;
+
+  if (showForm) {
+    // We show item creation form here
+  }
+
+  return (
+    <AddItemButton dark={dark} onClick={() => setShowForm(true)}>
+      {toggleButtonText}
+    </AddItemButton>
+  );
 };
 
 export default AddNewItem;

@@ -1,5 +1,7 @@
 import React from "react";
 import react, { createContext, useReducer, useContext } from "react";
+import { updateFunctionDeclaration } from "typescript";
+import uuid from "uuid";
 
 interface Task {
   id: string;
@@ -59,6 +61,10 @@ const appStateReducer = (state: AppState, action: Action): AppState => {
     case "ADD_LIST": {
       return {
         ...state,
+        lists: [
+          ...state.lists,
+          { id: uuid(), text: action.payload, tasks: [] },
+        ],
       };
     }
     case "ADD_TASK": {

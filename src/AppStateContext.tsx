@@ -54,6 +54,24 @@ const AppStateContext = createContext<AppStateContextProps>(
   {} as AppStateContextProps
 );
 
+const appStateReducer = (state: AppState, action: Action): AppState => {
+  switch (action.type) {
+    case "ADD_LIST": {
+      return {
+        ...state,
+      };
+    }
+    case "ADD_TASK": {
+      return {
+        ...state,
+      };
+    }
+    default: {
+      return state;
+    }
+  }
+};
+
 export const AppStateProvider = ({ children }: React.PropsWithChildren<{}>) => {
   return (
     <AppStateContext.Provider value={{ state: appData }}>

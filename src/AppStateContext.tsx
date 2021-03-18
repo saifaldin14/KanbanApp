@@ -2,7 +2,6 @@ import React from "react";
 import react, { createContext, useReducer, useContext } from "react";
 import { findItemIndexById } from "./utils/findItemIndexById";
 import uuid from "uuid";
-import { act } from "react-dom/test-utils";
 
 interface Task {
   id: string;
@@ -21,7 +20,12 @@ export interface AppState {
 
 interface AppStateContextProps {
   state: AppState;
+  dispatch: React.Dispatch<any>;
 }
+
+const AppStateContext = createContext<AppStateContextProps>(
+  {} as AppStateContextProps
+);
 
 type Action =
   | {
@@ -52,10 +56,6 @@ const appData: AppState = {
     },
   ],
 };
-
-const AppStateContext = createContext<AppStateContextProps>(
-  {} as AppStateContextProps
-);
 
 const appStateReducer = (state: AppState, action: Action): AppState => {
   switch (action.type) {

@@ -4,8 +4,6 @@ interface Item {
   id: string;
 }
 
-const findItemIndexById = () => {
+export const findItemIndexById = <T extends Item>(items: T[], id: string) => {
   return <div></div>;
 };
-
-export default findItemIndexById;

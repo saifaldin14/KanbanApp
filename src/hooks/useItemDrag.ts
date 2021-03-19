@@ -17,4 +17,5 @@ export const useItemDrag = (item: DragItem) => {
         payload: undefined,
       }),
   });
+  return { drag };
 };

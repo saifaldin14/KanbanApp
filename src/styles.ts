@@ -24,7 +24,7 @@ export const AppContainer = styled.div`
 `;
 
 // Column styles
-export const ColumnContainer = styled.div`
+export const ColumnContainer = styled(DragPreviewContainer)`
   background-color: #ebecf0;
   width: 300px;
   min-height: 40px;

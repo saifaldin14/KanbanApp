@@ -105,6 +105,9 @@ const appStateReducer = (state: AppState, action: Action): AppState => {
         ...state,
       };
     }
+    case "SET_DRAGGED_ITEM": {
+      return { ...state, draggedItem: action.payload };
+    }
     default: {
       return state;
     }

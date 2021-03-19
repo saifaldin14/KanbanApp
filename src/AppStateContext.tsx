@@ -2,6 +2,7 @@ import React from "react";
 import react, { createContext, useReducer, useContext } from "react";
 import { findItemIndexById } from "./utils/findItemIndexById";
 import { moveItem } from "./utils/moveItem";
+import { DragItem } from "./utils/DragItem";
 import uuid from "uuid";
 
 interface Task {
@@ -46,6 +47,10 @@ type Action =
         dragIndex: number;
         hoverIndex: number;
       };
+    }
+  | {
+      type: "SET_DRAGGED_ITEM";
+      payload: DragItem | undefined;
     };
 
 const appData: AppState = {

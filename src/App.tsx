@@ -10,7 +10,7 @@ const App = () => {
   return (
     <AppContainer>
       {state.lists.map((list, i) => (
-        <Column text={list.text} key={list.id} index={i} />
+        <Column text={list.text} key={list.id} id={1} index={i} />
       ))}
 
       <AddNewItem

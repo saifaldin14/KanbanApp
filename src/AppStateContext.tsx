@@ -3,7 +3,7 @@ import react, { createContext, useReducer, useContext } from "react";
 import { findItemIndexById } from "./utils/findItemIndexById";
 import { moveItem } from "./utils/moveItem";
 import { DragItem } from "./utils/DragItem";
-import uuid from "uuid";
+import { v4 as uuidv4 } from "uuid";
 
 interface Task {
   id: string;
@@ -80,7 +80,7 @@ const appStateReducer = (state: AppState, action: Action): AppState => {
         ...state,
         lists: [
           ...state.lists,
-          { id: uuid(), text: action.payload, tasks: [] },
+          { id: uuidv4(), text: action.payload, tasks: [] },
         ],
       };
     }
@@ -91,7 +91,7 @@ const appStateReducer = (state: AppState, action: Action): AppState => {
       );
 
       state.lists[targetLaneIndex].tasks.push({
-        id: uuid(),
+        id: uuidv4(),
         text: action.payload.text,
       });
       return {

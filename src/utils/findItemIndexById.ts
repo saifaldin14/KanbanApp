@@ -4,6 +4,4 @@ interface Item {
   id: string;
 }
 
-export const findItemIndexById = <T extends Item>(items: T[], id: string) => {
-  return <div></div>;
-};
+export const findItemIndexById = <T extends Item>(items: T[], id: string) => {};

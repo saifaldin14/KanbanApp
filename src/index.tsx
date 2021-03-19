@@ -4,12 +4,12 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { DndProvider } from "react-dnd";
-import Backend from "react-dnd-html5-backend";
+import { HTML5Backend } from "react-dnd-html5-backend";
 import { AppStateProvider } from "./AppStateContext";
 
 ReactDOM.render(
   <React.StrictMode>
-    <DndProvider backend={Backend}>
+    <DndProvider backend={HTML5Backend}>
       <AppStateProvider>
         <App />
       </AppStateProvider>

@@ -30,7 +30,7 @@ const Column = ({ text, index, id }: ColumnProps) => {
   });
   const ref = useRef<HTMLDivElement>(null);
   const { drag } = useItemDrag({ type: "COLUMN", id, index, text });
-  drag(ref);
+  drag(drop(ref));
 
   return (
     <ColumnContainer ref={ref}>

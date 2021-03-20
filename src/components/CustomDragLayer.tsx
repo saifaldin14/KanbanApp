@@ -31,3 +31,4 @@ const CustomDragLayer: React.FC = () => {
     </CustomDragLayerContainer>
   ) : null;
 };
+export default CustomDragLayer;

@@ -18,13 +18,16 @@ function getItemStyles(currentOffset: XYCoord | null): React.CSSProperties {
   };
 }
 const CustomDragLayer: React.FC = () => {
-  const { isDragging, item } = useDragLayer((monitor) => ({
+  const { isDragging, item, currentOffset } = useDragLayer((monitor) => ({
     item: monitor.getItem(),
+    currentOffset: monitor.getSourceClientOffset(),
     isDragging: monitor.isDragging(),
   }));
   return isDragging ? (
     <CustomDragLayerContainer>
-      <Column id={item.id} text={item.text} index={item.index} />
+      <div style={getItemStyles(currentOffset)}>
+        <Column id={item.id} text={item.text} index={item.index} />
+      </div>
     </CustomDragLayerContainer>
   ) : null;
 };

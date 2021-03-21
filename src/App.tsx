@@ -18,8 +18,8 @@ interface List {
 }
 
 export interface AppState {
-  lists: List[];
   draggedItem: DragItem | undefined;
+  lists: List[];
 }
 
 const App = () => {

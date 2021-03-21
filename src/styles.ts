@@ -1,20 +1,5 @@
-import { isUndefined } from "node:util";
 import styled from "styled-components";
 
-interface AddItemButtonProps {
-  dark?: boolean;
-}
-
-interface DragPreviewContainerProps {
-  isHidden?: boolean;
-}
-
-// Drag Preview Container styles
-export const DragPreviewContainer = styled.div<DragPreviewContainerProps>`
-  transform: ${(props) => (props.isPreview ? "rotate(5deg)" : undefined)};
-  opacity: ${(props) => (props.isHidden ? 0 : 1)};
-`;
-// App container styles
 export const AppContainer = styled.div`
   align-items: flex-start;
   background-color: #3179ba;
@@ -25,7 +10,16 @@ export const AppContainer = styled.div`
   width: 100%;
 `;
 
-// Column styles
+interface DragPreviewContainerProps {
+  isHidden?: boolean;
+  isPreview?: boolean;
+}
+
+export const DragPreviewContainer = styled.div<DragPreviewContainerProps>`
+  transform: ${(props) => (props.isPreview ? "rotate(5deg)" : undefined)};
+  opacity: ${(props) => (props.isHidden ? 0 : 1)};
+`;
+
 export const ColumnContainer = styled(DragPreviewContainer)`
   background-color: #ebecf0;
   width: 300px;
@@ -34,17 +28,16 @@ export const ColumnContainer = styled(DragPreviewContainer)`
   border-radius: 3px;
   padding: 8px 8px;
   flex-grow: 0;
+  flex-shrink: 0;
 `;
 
-// Column Titles
 export const ColumnTitle = styled.div`
   padding: 6px 16px 12px;
   font-weight: bold;
 `;
 
-// Card Container
-export const CardContainer = styled.div`
-  background-color: #ffffff;
+export const CardContainer = styled(DragPreviewContainer)`
+  background-color: #fff;
   cursor: pointer;
   margin-bottom: 0.5rem;
   padding: 0.5rem 1rem;
@@ -53,7 +46,10 @@ export const CardContainer = styled.div`
   box-shadow: #091e4240 0px 1px 0px 0px;
 `;
 
-// Add Next Item Button
+interface AddItemButtonProps {
+  dark?: boolean;
+}
+
 export const AddItemButton = styled.button<AddItemButtonProps>`
   background-color: #ffffff3d;
   border-radius: 3px;
@@ -70,7 +66,6 @@ export const AddItemButton = styled.button<AddItemButtonProps>`
   }
 `;
 
-// New Item Form Container
 export const NewItemFormContainer = styled.div`
   max-width: 300px;
   display: flex;
@@ -79,7 +74,15 @@ export const NewItemFormContainer = styled.div`
   align-items: flex-start;
 `;
 
-// New Item Button
+export const NewItemInput = styled.input`
+  border-radius: 3px;
+  border: none;
+  box-shadow: #091e4240 0px 1px 0px 0px;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem 1rem;
+  width: 100%;
+`;
+
 export const NewItemButton = styled.button`
   background-color: #5aac44;
   border-radius: 3px;
@@ -90,17 +93,6 @@ export const NewItemButton = styled.button`
   text-align: center;
 `;
 
-// New Item Input
-export const NewItemInput = styled.input`
-  border-radius: 3px;
-  border: none;
-  box-shadow: #091e4240 0px 1px 0px 0px;
-  margin-bottom: 0.5rem;
-  padding: 0.5rem 1rem;
-  width: 100%;
-`;
-
-// Custom Drag Layer Container styles
 export const CustomDragLayerContainer = styled.div`
   height: 100%;
   left: 0;

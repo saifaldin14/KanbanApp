@@ -24,6 +24,7 @@ export const Card = ({ text, id, index, columnId, isPreview }: CardProps) => {
       if (item.id === id) {
         return;
       }
+
       const dragIndex = item.index;
       const hoverIndex = index;
       const sourceColumn = item.columnId;
@@ -39,6 +40,7 @@ export const Card = ({ text, id, index, columnId, isPreview }: CardProps) => {
   });
 
   drag(drop(ref));
+
   return (
     <CardContainer
       isHidden={isHidden(isPreview, state.draggedItem, "CARD", id)}

@@ -4,7 +4,6 @@ import { nanoid } from "nanoid";
 import { findItemIndexById } from "./utils/findItemIndexById";
 import { moveItem } from "./utils/moveItem";
 import { DragItem } from "./DragItem";
-import { isJSDocTemplateTag } from "typescript";
 
 type Action =
   | {

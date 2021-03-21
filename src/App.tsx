@@ -1,10 +1,10 @@
 import React from "react";
 import { Column } from "./components/Column";
-import { AppContainer, CustomDragLayerContainer } from "./styles";
+import { AppContainer } from "./styles";
 import { useAppState } from "./AppStateContext";
 import { AddNewItem } from "./components/AddNewItem";
 import { DragItem } from "./DragItem";
-import { CustomDragLayer } from "./components/CustomDragLayer";
+import CustomDragLayer from "./components/CustomDragLayer";
 
 interface Task {
   id: string;

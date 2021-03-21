@@ -37,5 +37,15 @@ export const Card = ({ text, id, index, columnId, isPreview }: CardProps) => {
       item.columnId = targetColumn;
     },
   });
-  return <CardContainer>{text}</CardContainer>;
+
+  drag(drop(ref));
+  return (
+    <CardContainer
+      isHidden={isHidden(isPreview, state.draggedItem, "CARD", id)}
+      isPreview={isPreview}
+      ref={ref}
+    >
+      {text}
+    </CardContainer>
+  );
 };

@@ -14,7 +14,10 @@ interface CardProps {
   isPreview?: boolean;
 }
 
-export const Card = ({ text }: CardProps) => {
+export const Card = ({ text, id, index, columnId, isPreview }: CardProps) => {
+  const { state, dispatch } = useAppState();
+  const ref = useRef<HTMLDivElement>(null);
+  const { drag } = useItemDrag({ type: "CARD", id, index, text, columnId });
   const [, drop] = useDrop({
     accept: "CARD",
     hover(item: CardDragItem) {
@@ -23,13 +26,15 @@ export const Card = ({ text }: CardProps) => {
       }
       const dragIndex = item.index;
       const hoverIndex = index;
+      const sourceColumn = item.columnId;
+      const targetColumn = columnId;
 
-      if (dragIndex === hoverIndex) {
-        return;
-      }
-
-      dispatch({ type: "MOVE_LIST", payload: { dragIndex, hoverIndex } });
+      dispatch({
+        type: "MOVE_TASK",
+        payload: { dragIndex, hoverIndex, sourceColumn, targetColumn },
+      });
       item.index = hoverIndex;
+      item.columnId = targetColumn;
     },
   });
   return <CardContainer>{text}</CardContainer>;
